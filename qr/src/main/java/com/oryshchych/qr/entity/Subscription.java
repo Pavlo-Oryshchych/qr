@@ -1,9 +1,10 @@
 package com.oryshchych.qr.entity;
 
-
 import jakarta.persistence.*;
+import lombok.Data;
 import java.time.LocalDate;
 
+@Data
 @Entity
 public class Subscription {
 
@@ -18,37 +19,4 @@ public class Subscription {
 
     @Enumerated(EnumType.STRING)
     private SubscriptionType type;
-
-    // Геттеры и сеттеры
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDate getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDate getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
-
-    public SubscriptionType getType() {
-        return type;
-    }
-
-    public void setType(SubscriptionType type) {
-        this.type = type;
-    }
 }

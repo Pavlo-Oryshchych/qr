@@ -1,20 +1,12 @@
 package com.oryshchych.qr.entity;
 
-
-
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.context.annotation.ComponentScan;
-
 import java.time.LocalDateTime;
+
 @Data
 @Entity
-
-
 public class QrCode {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

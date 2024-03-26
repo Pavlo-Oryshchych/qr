@@ -2,6 +2,7 @@ package com.oryshchych.qr.entity;
 
 
 import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
 @Entity
@@ -37,20 +38,6 @@ public class User {
         this.registrationDate = registrationDate;
     }
 
-    public LocalDate getSubscriptionEndDate() {
-        return subscriptionEndDate;
-    }
 
-    public void setSubscriptionEndDate(LocalDate subscriptionEndDate) {
-        this.subscriptionEndDate = subscriptionEndDate;
-    }
-
-    public SubscriptionType getSubscriptionType() {
-        return subscriptionType;
-    }
-
-    public void setSubscriptionType(SubscriptionType subscriptionType) {
-        this.subscriptionType = subscriptionType;
-    }
 }
 
