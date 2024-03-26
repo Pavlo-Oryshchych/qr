@@ -1,9 +1,9 @@
 package com.oryshchych.qr.repository;
 
-import com.oryshchych.qr.entity.User;
+import com.oryshchych.qr.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
 }

@@ -1,6 +1,6 @@
 package com.oryshchych.qr.controller;
 
-import com.oryshchych.qr.entity.User;
+import com.oryshchych.qr.entity.UserEntity;
 import com.oryshchych.qr.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,18 +15,18 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public List<User> getAllUsers() {
+    public List<UserEntity> getAllUsers() {
         return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
+    public UserEntity getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
+    public UserEntity createUser(@RequestBody UserEntity userEntity) {
+        return userService.createUser(userEntity);
     }
 
     @DeleteMapping("/{id}")

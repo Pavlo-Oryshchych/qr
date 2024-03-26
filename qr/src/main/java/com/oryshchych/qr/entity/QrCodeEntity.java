@@ -6,19 +6,19 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-public class QrCode {
+public class QrCodeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String type;
+    @Column(nullable = false)
+    private String userId;
+
+    @Column(nullable = false)
+    private LocalDateTime creationDate;
 
     @Column(nullable = false)
     private String content;
-
-    @Column(nullable = false)
-    private LocalDateTime creationDateTime;
-
 }
 

@@ -1,6 +1,6 @@
 package com.oryshchych.qr.service;
 
-import com.oryshchych.qr.entity.User;
+import com.oryshchych.qr.entity.UserEntity;
 import com.oryshchych.qr.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,16 +13,16 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> getAllUsers() {
+    public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public User getUserById(Long id) {
+    public UserEntity getUserById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
 
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public UserEntity createUser(UserEntity userEntity) {
+        return userRepository.save(userEntity);
     }
 
     public void deleteUser(Long id) {

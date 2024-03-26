@@ -1,10 +1,17 @@
 package com.oryshchych.qr.repository;
 
-import com.oryshchych.qr.entity.QrCode;
+import com.oryshchych.qr.entity.QrCodeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-@Repository
+import java.util.List;
 
-public interface QrCodeRepository extends JpaRepository<QrCode, Long> {
+@Repository
+public interface QrCodeRepository extends JpaRepository<QrCodeEntity, Long> {
+
+        @Query("SELECT '*' FROM QrCodeEntity WHERE userId = :userId")
+        List<QrCodeEntity> getQrByUserId(@Param("userId") String userId);
+
 }

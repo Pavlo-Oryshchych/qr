@@ -1,6 +1,6 @@
 package com.oryshchych.qr.controller;
 
-import com.oryshchych.qr.entity.QrCode;
+import com.oryshchych.qr.entity.QrCodeEntity;
 import com.oryshchych.qr.service.QrCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,18 +17,22 @@ public class QrCodeController {
     private QrCodeService qrCodeService;
 
     @GetMapping
-    public List<QrCode> getAllQrCodes() {
+    public List<QrCodeEntity> getAllQrCodes() {
         return qrCodeService.getAllQrCodes();
     }
 
     @GetMapping("/{id}")
-    public QrCode getQrCodeById(@PathVariable Long id) {
+    public QrCodeEntity getQrCodeById(@PathVariable Long id) {
         return qrCodeService.getQrCodeById(id);
+    }
+    @GetMapping("byuserid/{id}")
+    public List<QrCodeEntity> getQrCodeByUserId(@PathVariable Long id) {
+        return qrCodeService.findCodesByUserId(id.toString());
     }
 
     @PostMapping
-    public QrCode createQrCode(@RequestBody QrCode qrCode) {
-        return qrCodeService.createQrCode(qrCode);
+    public QrCodeEntity createQrCode(@RequestBody QrCodeEntity qrCodeEntity) {
+        return qrCodeService.createQrCode(qrCodeEntity);
     }
 
     @DeleteMapping("/{id}")

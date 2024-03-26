@@ -1,22 +1,28 @@
 package com.oryshchych.qr.entity;
 
+
 import jakarta.persistence.*;
 import lombok.Data;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
-public class Subscription {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private LocalDate startDate;
+    private String username;
 
-    private LocalDate endDate;
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
+    private LocalDateTime registrationDate;
 
     @Enumerated(EnumType.STRING)
-    private SubscriptionType type;
+    private RoleType roleType;
 }
+
