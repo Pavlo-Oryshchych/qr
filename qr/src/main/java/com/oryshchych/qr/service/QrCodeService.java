@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,10 +21,11 @@ public class QrCodeService {
 
     //TODO: сделать запрос по актуальным qr кодам или по всем (можно сдлеать отдельные методы)
     public List<QrCodeEntity> getAllQrCodes() {
-        return qrCodeRepository.findAll();
+        List<QrCodeEntity> list = qrCodeRepository.findAll();
+        return new ArrayList<>();
     }
 
-    public List<QrCodeEntity> findCodesByUserId(String userId) {
+    public List<QrCodeEntity> findCodesByUserId(Long userId) {
         return qrCodeRepository.getQrByUserId(userId);
     }
 

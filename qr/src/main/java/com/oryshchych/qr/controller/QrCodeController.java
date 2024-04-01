@@ -27,7 +27,7 @@ public class QrCodeController {
     }
     @GetMapping("byuserid/{id}")
     public List<QrCodeEntity> getQrCodeByUserId(@PathVariable Long id) {
-        return qrCodeService.findCodesByUserId(id.toString());
+        return qrCodeService.findCodesByUserId(id);
     }
 
     @PostMapping

@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface QrCodeRepository extends JpaRepository<QrCodeEntity, Long> {
 
-        @Query("SELECT '*' FROM QrCodeEntity WHERE userId = :userId")
-        List<QrCodeEntity> getQrByUserId(@Param("userId") String userId);
+        @Query("SELECT qr FROM QrCodeEntity qr WHERE qr.userId = :userId")
+        List<QrCodeEntity> getQrByUserId(@Param("userId") Long userId);
 
 }
