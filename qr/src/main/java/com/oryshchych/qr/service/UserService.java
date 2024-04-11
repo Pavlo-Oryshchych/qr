@@ -13,6 +13,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    //Заглушка для получения всех пользователей
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
     }
