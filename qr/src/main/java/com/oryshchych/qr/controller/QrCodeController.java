@@ -28,17 +28,6 @@ public class QrCodeController {
         return users;
     }
 
-    @GetMapping("/{id}")
-    public QrCodeEntity getQrCodeById(@PathVariable Long id) {
-
-        return qrCodeService.getQrCodeById(id);
-    }
-
-    @GetMapping("byuserid/{id}")
-    public List<QrCodeEntity> getQrCodeByUserId(@PathVariable Long id) {
-        return qrCodeService.findCodesByUserId(id);
-    }
-
     @PostMapping
     public QrCodeEntity createQrCode(@RequestBody QrCodeEntity qrCodeEntity) {
         return qrCodeService.createQrCode(qrCodeEntity);
