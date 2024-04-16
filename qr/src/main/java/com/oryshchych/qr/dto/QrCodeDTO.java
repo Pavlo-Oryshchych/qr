@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class QrCodeDTO {
+    Long id;
     String content;
     String imageURL;
 

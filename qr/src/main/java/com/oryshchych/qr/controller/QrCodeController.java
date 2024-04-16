@@ -1,13 +1,12 @@
 package com.oryshchych.qr.controller;
 
 import com.oryshchych.qr.dto.UserDTO;
-import com.oryshchych.qr.entity.QrCodeEntity;
+import com.oryshchych.qr.models.QrCodeEntity;
 import com.oryshchych.qr.service.QrCodeService;
 import com.oryshchych.qr.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 

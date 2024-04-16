@@ -1,20 +1,19 @@
 package com.oryshchych.qr.dto;
 
-import com.oryshchych.qr.entity.RoleType;
-import lombok.AllArgsConstructor;
+import com.oryshchych.qr.models.RoleType;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Builder
 public class UserDTO {
-    String name;
-    String registrationDate;
-    RoleType roleType;
-    List<QrCodeDTO> qrCodes;
-
+    private Long id;
+    private LocalDateTime registrationDate;
+    private LocalDateTime updatedDate;
+    private List<QrCodeDTO> qrCodeDTO;
+    private RoleType roleType;
 
 }

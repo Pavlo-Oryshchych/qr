@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+</head>
+<body>
+<h2>Generate QR Code</h2>
+
+<!-- QR Code Generation Form -->
+<form action="/generate" method="post">
+    <label for="content">Enter Content:</label><br>
+    <input type="text" id="content" name="content" required><br><br>
+    <button type="submit">Generate QR Code</button>
+</form>
+
+<br>
+
+<!-- Display Generated QR Code -->
+<h3>QR Code:</h3>
+<!-- Assuming you will display the generated QR code image here -->
+<!-- You can use a library like Google Charts API to generate QR codes dynamically -->
+<!-- For example: -->
+<!-- <img th:src="@{'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=' + ${qrCodeContent}}" alt="QR Code"> -->
+</body>
+</html>
+
+

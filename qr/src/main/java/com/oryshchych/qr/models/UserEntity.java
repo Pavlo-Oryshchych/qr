@@ -1,33 +1,42 @@
-package com.oryshchych.qr.entity;
+package com.oryshchych.qr.models;
 
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+
 public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String username;
+    @Column
+    private String email;
 
-    @Column(nullable = false)
+    @Column
     private String password;
 
-    @Column(nullable = false)
+    @Column
+    @CreationTimestamp
     private LocalDateTime registrationDate;
 
-    @Enumerated(EnumType.STRING)
+    @Column
+    @UpdateTimestamp
+    private LocalDateTime updatedDate;
+
+    @Column
     private RoleType roleType;
 }
 

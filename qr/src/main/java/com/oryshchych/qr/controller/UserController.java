@@ -1,8 +1,9 @@
 package com.oryshchych.qr.controller;
 
-import com.oryshchych.qr.entity.UserEntity;
+import com.oryshchych.qr.models.UserEntity;
 import com.oryshchych.qr.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,18 +20,15 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/{id}")
-    public UserEntity getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
-    }
-
     @PostMapping
-    public UserEntity createUser(@RequestBody UserEntity userEntity) {
-        return userService.createUser(userEntity);
-    }
+    public ResponseEntity<String> registerUser(@RequestBody UserEntity userEntity) {
+        // Проверка зарегестрирован ли емейл ранее
+        if (userService.existsByEmail(userEntity.getEmail())) {
+            return ResponseEntity.badRequest().body("Email already registered");
+        }
+        // Сохраняет нового юзера
+        userService.createUser(userEntity);
 
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id);
+        return ResponseEntity.ok("User registered successfully");
     }
 }
