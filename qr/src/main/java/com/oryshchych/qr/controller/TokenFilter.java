@@ -20,13 +20,9 @@ import java.io.IOException;
 @Component
 public class TokenFilter extends OncePerRequestFilter {
 
-    private final SecurityFilterChain filterChain;
     private JwtCore jwtCore;
     private UserDetailsService userDetailsService;
 
-    public TokenFilter(@Qualifier("filterChain") SecurityFilterChain filterChain) {
-        this.filterChain = filterChain;
-    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -44,7 +40,7 @@ public class TokenFilter extends OncePerRequestFilter {
                 try {
                     username = jwtCore.getNameFromJwt(jwt);
                 } catch (ExpiredJwtException e) {
-                    //TODO
+
                 }
                 if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                     userDetails = userDetailsService.loadUserByUsername(username);
