@@ -1,6 +1,6 @@
 package com.oryshchych.qr.repository;
 
-import com.oryshchych.qr.models.QrCodeEntity;
+import com.oryshchych.qr.entity.QrCodeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

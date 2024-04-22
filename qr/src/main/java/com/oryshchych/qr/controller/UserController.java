@@ -1,6 +1,7 @@
+/*
 package com.oryshchych.qr.controller;
 
-import com.oryshchych.qr.models.UserEntity;
+import com.oryshchych.qr.entity.User;
 import com.oryshchych.qr.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +17,12 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public List<UserEntity> getAllUsers() {
+    public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
     @PostMapping
-    public ResponseEntity<String> registerUser(@RequestBody UserEntity userEntity) {
+    public ResponseEntity<String> registerUser(@RequestBody User userEntity) {
         // Проверка зарегестрирован ли емейл ранее
         if (userService.existsByEmail(userEntity.getEmail())) {
             return ResponseEntity.badRequest().body("Email already registered");
@@ -32,3 +33,4 @@ public class UserController {
         return ResponseEntity.ok("User registered successfully");
     }
 }
+*/

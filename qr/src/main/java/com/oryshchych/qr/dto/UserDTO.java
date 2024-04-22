@@ -1,6 +1,6 @@
 package com.oryshchych.qr.dto;
 
-import com.oryshchych.qr.models.RoleType;
+import com.oryshchych.qr.entity.RoleType;
 import lombok.Builder;
 import lombok.Data;
 

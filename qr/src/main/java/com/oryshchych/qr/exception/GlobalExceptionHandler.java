@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Resource not found");
     }
 
-    // Другие методы обработки исключений...
+
 }
 
 

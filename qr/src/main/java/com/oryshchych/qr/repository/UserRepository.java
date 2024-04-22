@@ -1,12 +1,14 @@
 package com.oryshchych.qr.repository;
 
-import com.oryshchych.qr.models.UserEntity;
+import com.oryshchych.qr.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-
-public interface UserRepository extends JpaRepository<UserEntity, Long> {
-    Optional<UserEntity> findByEmail(String email);
-    boolean existsByEmail(String email);
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findUserByUsername(String username);
+    Boolean existsUserByUsername(String username);
+    Boolean existsUserByEmail(String email);
 }

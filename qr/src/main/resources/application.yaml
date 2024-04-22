@@ -16,6 +16,10 @@ spring:
         use_sql_comments: true
     hibernate:
       ddl-auto: update
+qr:
+  app:
+    secret: dHsVxiN128n43JKqW79E
+    lifetime: 60000
 logging:
   level:
     org:

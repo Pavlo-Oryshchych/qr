@@ -1,4 +1,4 @@
-package com.oryshchych.qr.models;
+package com.oryshchych.qr.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
