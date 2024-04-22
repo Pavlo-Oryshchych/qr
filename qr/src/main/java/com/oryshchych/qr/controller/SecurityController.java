@@ -66,7 +66,6 @@ public class SecurityController {
         user.setPassword(hashedPassword);
         userRepository.save(user);
         return ResponseEntity.ok("Successfully signed up!");
-
     }
 
     @PostMapping("/signin")
