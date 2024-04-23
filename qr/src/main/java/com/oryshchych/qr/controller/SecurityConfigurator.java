@@ -23,10 +23,22 @@ import org.springframework.web.cors.CorsConfiguration;
 @EnableWebSecurity
 public class SecurityConfigurator {
 
-    @Autowired
-    TokenFilter tokenFilter;
+    private TokenFilter tokenFilter;
 
     private UserService userService;
+
+    public SecurityConfigurator() {
+    }
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    @Autowired
+    public void setTokenFilter(TokenFilter tokenFilter) {
+        this.tokenFilter = tokenFilter;
+    }
 
 
     @Bean
@@ -40,9 +52,10 @@ public class SecurityConfigurator {
     }
 
     @Bean
-    public AuthenticationManagerBuilder authenticationManagerBuilder2(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+    public AuthenticationManagerBuilder authenticationManagerBuilder(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
         authenticationManagerBuilder.userDetailsService(userService).passwordEncoder(passwordEncoder());
         return authenticationManagerBuilder;
+
     }
 
     @Bean
@@ -65,9 +78,9 @@ public class SecurityConfigurator {
                         .requestMatchers("/secured/user").fullyAuthenticated()
                         .anyRequest().permitAll()
                 )
-                .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
-        ;
+                .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
+
 
 }
