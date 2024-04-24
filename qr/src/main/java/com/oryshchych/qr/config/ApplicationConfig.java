@@ -1,7 +1,7 @@
 package com.oryshchych.qr.config;
 
 import com.oryshchych.qr.auditing.ApplicationAuditAware;
-import com.oryshchych.qr.repository.UserRepository;
+import com.oryshchych.qr.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -3,11 +3,11 @@ package com.oryshchych.qr.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oryshchych.qr.config.JwtService;
-import com.oryshchych.qr.repository.UserRepository;
 import com.oryshchych.qr.token.Token;
 import com.oryshchych.qr.token.TokenRepository;
 import com.oryshchych.qr.token.TokenType;
 import com.oryshchych.qr.user.User;
+import com.oryshchych.qr.user.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
