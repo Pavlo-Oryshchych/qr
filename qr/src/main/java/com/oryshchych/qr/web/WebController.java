@@ -11,6 +11,13 @@ public class WebController {
     public String index() {
         return "login";
     }
+
+    @RequestMapping("/home")
+    public String home() {
+        return "main";
+    }
 }
+
+
 
 
