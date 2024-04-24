@@ -2,6 +2,7 @@ package com.oryshchych.qr;
 
 import com.oryshchych.qr.auth.AuthenticationService;
 import com.oryshchych.qr.auth.RegisterRequest;
+import com.oryshchych.qr.user.Role;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,6 +34,15 @@ public class QrApplication {
                     .role(ADMIN)
                     .build();
             System.out.println("Admin token: " + service.register(admin).getAccessToken());
+
+            var user = RegisterRequest.builder()
+                    .firstname("User")
+                    .lastname("User")
+                    .email("user@mail.com")
+                    .password("password")
+                    .role(Role.USER)
+                    .build();
+            System.out.println("User token: " + service.register(user).getAccessToken());
 
         };
     }
