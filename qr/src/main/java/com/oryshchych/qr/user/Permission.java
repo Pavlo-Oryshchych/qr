@@ -3,6 +3,7 @@ package com.oryshchych.qr.user;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+@Getter
 @RequiredArgsConstructor
 public enum Permission {
 
@@ -16,6 +17,5 @@ public enum Permission {
     USERS_CREATE("users:create"),
     ;
 
-    @Getter
     private final String permission;
 }

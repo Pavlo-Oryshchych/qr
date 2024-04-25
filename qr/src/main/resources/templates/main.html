@@ -12,6 +12,9 @@
 <form action="/generate" method="post">
     <label for="content">Enter Content:</label><br>
     <input type="text" id="content" name="content" required><br><br>
+    <!-- Add the hidden input field for the token -->
+    <input id="token" name="token" type="hidden"
+           value="eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvcnlzaGNoeWNoQGdtYWlsLmNvbSIsImlhdCI6MTcxNDA0NTQxOCwiZXhwIjoxNzE0MTMxODE4fQ.4ZBdkCgDjLfEHsPUw-7Mb4nIz-jH1rq2lSdIPViF5UQ">
     <button type="submit">Generate QR Code</button>
 </form>
 

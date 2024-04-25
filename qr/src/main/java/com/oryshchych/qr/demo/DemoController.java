@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user/test-endpoint")
-//@Hidden
+
 public class DemoController {
 
     @GetMapping
