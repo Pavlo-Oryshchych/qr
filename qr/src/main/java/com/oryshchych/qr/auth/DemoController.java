@@ -1,4 +1,4 @@
-package com.oryshchych.qr.demo;
+package com.oryshchych.qr.auth;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
