@@ -4,8 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -14,14 +13,21 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public enum Role {
 
-    USER(new HashSet<>()),
+    USER(Collections.emptySet()),
     ADMIN(
-            new HashSet<>(Arrays.asList(
+            Set.of(
                     Permission.ADMIN_READ,
                     Permission.ADMIN_UPDATE,
                     Permission.ADMIN_DELETE,
                     Permission.ADMIN_CREATE
-            ))
+            )
+
+    ),
+    USERS(Set.of(
+            Permission.USERS_READ,
+            Permission.USERS_UPDATE,
+            Permission.USERS_CREATE
+    )
     );
 
     @Getter
