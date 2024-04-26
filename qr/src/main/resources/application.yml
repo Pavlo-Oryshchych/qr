@@ -1,3 +1,8 @@
+qrcode:
+  message: codeonedigest
+  output:
+    directory: D:\Projects\Java\qrgenerator\QRCodeOuput
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/qr
@@ -13,6 +18,7 @@ spring:
         format_sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
 application:
   security:
     jwt:
@@ -20,6 +26,7 @@ application:
       expiration: 86400000 # a day
       refresh-token:
         expiration: 604800000 # 7 days
+
 logging:
   level:
     org:

@@ -1,5 +1,6 @@
-package com.oryshchych.qr.user;
+package com.oryshchych.qr.qrcode;
 
+import com.oryshchych.qr.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,14 +19,14 @@ public class QrCodeEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String userId;
-
-    @Column(nullable = false)
     private LocalDateTime creationDate;
 
     @Column(nullable = false)
     private String content;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }
 

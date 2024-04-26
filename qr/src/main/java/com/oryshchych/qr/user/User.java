@@ -1,12 +1,9 @@
 package com.oryshchych.qr.user;
 
-
+import com.oryshchych.qr.qrcode.QrCodeEntity;
 import com.oryshchych.qr.token.Token;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -19,6 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "_user")
+@Getter
+@Setter
 public class User implements UserDetails {
 
     @Id
@@ -35,7 +34,8 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
 
-    private String content; // New field for storing QR code content
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<QrCodeEntity> qrCodeEntities;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
